@@ -1,0 +1,15 @@
+@import "./variables";
+@import "./media_quiries";
+@import "./navbar.module.scss";
+@import "./page.module.scss";
+@import "./card.module.scss";
+@import "./nofav.module.scss";
+@import "./spinner.module.scss";
+
+* {
+  margin: 0;
+}
+::selection {
+  background: $primary;
+  color: $tertiary;
+}

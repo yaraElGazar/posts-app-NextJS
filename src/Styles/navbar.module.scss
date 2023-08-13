@@ -1,0 +1,52 @@
+@import "./variables";
+@import "./media_quiries";
+
+.nav-bar {
+  background-color: $primary;
+  margin: 0;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+
+  @include desktop {
+    position: fixed;
+    top: 0;
+    height: fit-content;
+    justify-content: start;
+  }
+
+  .nav-item {
+    color: white;
+    fill: white;
+    margin: 0 40px;
+    display: block;
+    @include desktop {
+      margin: 0 20px;
+      text-decoration: none;
+    }
+
+    svg {
+      @include desktop {
+        display: none;
+      }
+    }
+
+    .text {
+      display: none;
+
+      @include desktop {
+        display: block;
+      }
+    }
+  }
+
+  .active {
+    fill: $secondary;
+    transition: all 0.5s ease;
+    color: $secondary;
+  }
+}
