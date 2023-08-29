@@ -1,27 +1,25 @@
-"use client"
-import React from 'react';
-import { useState, useEffect } from 'react';
-import Posts from '@/Components/Posts';
-import { posts } from '@/data/posts';
-
+"use client";
+import React from "react";
+import { useState, useEffect } from "react";
+import Posts from "@/Components/Posts";
+import { posts } from "@/data/posts";
 
 // Post interface
-import { Post } from '@/data/posts';
+import { Post } from "@/data/posts";
 
 const Home = () => {
-
   // States
-  const[currentPosts, setCurrentPosts] = useState<Post[]>([]);
+  const [currentPosts, setCurrentPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     const liked = localStorage.getItem("liked");
 
     // Check if there are liked posts stored in the local storage
     if (liked) {
-      const likedIDs = JSON.parse(liked).map((likedPost:Post) => likedPost.id);
+      const likedIDs = JSON.parse(liked).map((likedPost: Post) => likedPost.id);
       // update the curent posts to reflect the liked posts
-      const updatedPosts = posts.map((post)=>{
-        if(likedIDs.includes(post.id)) {
+      const updatedPosts = posts.map((post) => {
+        if (likedIDs.includes(post.id)) {
           post.liked = true;
           return post;
         } else {
@@ -38,7 +36,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <Posts posts={currentPosts} type="all"/>
+      <Posts posts={currentPosts} type="all" />
     </div>
   );
 };
